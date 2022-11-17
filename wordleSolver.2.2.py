@@ -23,6 +23,9 @@ def loadWords(language):
         
     elif language == 'EN':
         path = os.path.join(os.path.dirname(__file__), "ods{}.txt".format(5))
+    
+    else :
+        path = os.path.join(os.path.dirname(__file__), "ods{}.txt".format(6))
 
     with open(path, 'r') as f:  # Ouvre le document en tant que "f"
         for line in f:  # Pour chaque ligne du fichier
