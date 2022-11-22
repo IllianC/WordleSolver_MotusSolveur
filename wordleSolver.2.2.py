@@ -8,7 +8,8 @@
 #
 # Relecture du code et variables renommées pour une meilleure compréhension
 
-import re, os
+import re
+import os
 
 
 #   Charge une liste de mots prédéfinis
@@ -20,11 +21,11 @@ def loadWords(language):
     # ods6 -> Français / ods5-7 -> Anglais
     if language == 'FR':
         path = os.path.join(os.path.dirname(__file__), "ods{}.txt".format(6))
-        
+
     elif language == 'EN':
         path = os.path.join(os.path.dirname(__file__), "ods{}.txt".format(5))
-    
-    else :
+
+    else:
         path = os.path.join(os.path.dirname(__file__), "ods{}.txt".format(6))
 
     with open(path, 'r') as f:  # Ouvre le document en tant que "f"
@@ -195,6 +196,8 @@ while not isLeaving:
         printList(filteredWordList, "Filtered wordlist")
         if (int(input("Solved ? (0,1) : "))) == 1:
             isFound = True
+        else:
+            isFound = False
 
     wordListRestricted.clear()
     historyWordsTried.clear()
@@ -202,3 +205,5 @@ while not isLeaving:
     isFound = False
     if (int(input("Rejouer ? (0,1) : "))) == 0:
         isLeaving = True
+    else:
+        isLeaving = False
