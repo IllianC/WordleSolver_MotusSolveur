@@ -58,6 +58,7 @@ def searchInWordlist(wordListCorrectLength, historyWordsTried,
         wordTried = historyWordsTried[j]
         wordTriedResult = historyWordsTriedResult[j]
         wordTriedResult = checkDoublon(wordTried, wordTriedResult)
+
         print(f"{wordTried} {wordTriedResult}")
 
         for i in range(len(wordTried)):
@@ -97,10 +98,7 @@ def searchInWordlist(wordListCorrectLength, historyWordsTried,
 
 # Fonction qui vérifie si un mot est dans une liste de mots
 def isInDic(wordListCorrectLength, wordTried):
-    if wordTried in wordListCorrectLength:
-        return 1
-    else:
-        return 0
+    1 if wordTried in wordListCorrectLength else 0
 
 
 # Fonction qui affiche une liste de mots
@@ -194,16 +192,10 @@ while not isLeaving:
         filteredWordList = searchInWordlist(
             wordListRestricted, historyWordsTried, historyWordsTriedResult)
         printList(filteredWordList, "Filtered wordlist")
-        if (int(input("Solved ? (0,1) : "))) == 1:
-            isFound = True
-        else:
-            isFound = False
+        isFound = True if (int(input("Solved ? (0,1) : "))) == 1 else False
 
     wordListRestricted.clear()
     historyWordsTried.clear()
     historyWordsTriedResult.clear()
     isFound = False
-    if (int(input("Rejouer ? (0,1) : "))) == 0:
-        isLeaving = True
-    else:
-        isLeaving = False
+    isLeaving = True if (int(input("Rejouer ? (0,1) : "))) == 0 else False
